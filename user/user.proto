@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "./;user";
+
+message Users {
+    repeated User userList = 1;
+}
+
+message User {
+    string name = 1;
+    int32 age = 2;
+    string city = 3;
+}
+
+message Request {
+    string name = 1;
+}
+
+service UserServer {
+    rpc GetUserList(Request) returns (Users){};
+}
